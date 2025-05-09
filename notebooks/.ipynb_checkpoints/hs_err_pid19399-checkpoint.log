@@ -1,0 +1,700 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 351272960 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2791), pid=19399, tid=0x00007f66ec812700
+#
+# JRE version:  (8.0_402-b06) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.402-b06 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f66e4055000):  JavaThread "Unknown thread" [_thread_in_vm, id=19449, stack(0x00007f66ec713000,0x00007f66ec813000)]
+
+Stack: [0x00007f66ec713000,0x00007f66ec813000],  sp=0x00007f66ec811600,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xb6a5dd]  VMError::report_and_die()+0x1cd
+V  [libjvm.so+0x50d12a]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0xaa
+V  [libjvm.so+0x9457b8]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0xd8
+V  [libjvm.so+0x93f67e]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2e
+V  [libjvm.so+0x9bd45b]  PSVirtualSpace::expand_by(unsigned long)+0x5b
+V  [libjvm.so+0x9ae788]  PSOldGen::initialize(ReservedSpace, unsigned long, char const*, int)+0xa8
+V  [libjvm.so+0x2f2153]  AdjoiningGenerations::AdjoiningGenerations(ReservedSpace, GenerationSizer*, unsigned long)+0x373
+V  [libjvm.so+0x96d7c0]  ParallelScavengeHeap::initialize()+0x220
+V  [libjvm.so+0xb333b9]  Universe::initialize_heap()+0x159
+V  [libjvm.so+0xb33662]  universe_init()+0x42
+V  [libjvm.so+0x64979f]  init_globals()+0x6f
+V  [libjvm.so+0xb159ff]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x29f
+V  [libjvm.so+0x71c41d]  JNI_CreateJavaVM+0x5d
+C  [libjli.so+0x3043]  JavaMain+0xa3
+C  [libpthread.so.0+0x7ea5]  start_thread+0xc5
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007f66e4055000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=19449, stack(0x00007f66ec713000,0x00007f66ec813000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000005cbc00000, size: 8004 MB, Compressed Oops mode: Non-zero based:0x00000005cbbff000, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+5e0b00000-719400000 ---p 00000000 00:00 0 
+719400000-723b00000 rw-p 00000000 00:00 0 
+723b00000-7c0000000 ---p 00000000 00:00 0 
+5632345cc000-5632345cd000 r-xp 00000000 08:03 937008                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/bin/java
+5632347cc000-5632347cd000 r--p 00000000 08:03 937008                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/bin/java
+5632347cd000-5632347ce000 rw-p 00001000 08:03 937008                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/bin/java
+563235b50000-563235b71000 rw-p 00000000 00:00 0                          [heap]
+7f66d5000000-7f66d5270000 rwxp 00000000 00:00 0 
+7f66d5270000-7f66e4000000 ---p 00000000 00:00 0 
+7f66e4000000-7f66e407c000 rw-p 00000000 00:00 0 
+7f66e407c000-7f66e8000000 ---p 00000000 00:00 0 
+7f66e809c000-7f66e835b000 rw-p 00000000 00:00 0 
+7f66e835b000-7f66e8dc7000 ---p 00000000 00:00 0 
+7f66e8dc7000-7f66e8e1b000 rw-p 00000000 00:00 0 
+7f66e8e1b000-7f66e92fd000 ---p 00000000 00:00 0 
+7f66e92fd000-7f66e9308000 rw-p 00000000 00:00 0 
+7f66e9308000-7f66e96be000 ---p 00000000 00:00 0 
+7f66e96be000-7f66e96c6000 r-xp 00000000 08:03 936134                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libzip.so
+7f66e96c6000-7f66e98c5000 ---p 00008000 08:03 936134                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libzip.so
+7f66e98c5000-7f66e98c6000 r--p 00007000 08:03 936134                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libzip.so
+7f66e98c6000-7f66e98c7000 rw-p 00008000 08:03 936134                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libzip.so
+7f66e98c7000-7f66e98d3000 r-xp 00000000 08:03 918642                     /usr/lib64/libnss_files-2.17.so
+7f66e98d3000-7f66e9ad2000 ---p 0000c000 08:03 918642                     /usr/lib64/libnss_files-2.17.so
+7f66e9ad2000-7f66e9ad3000 r--p 0000b000 08:03 918642                     /usr/lib64/libnss_files-2.17.so
+7f66e9ad3000-7f66e9ad4000 rw-p 0000c000 08:03 918642                     /usr/lib64/libnss_files-2.17.so
+7f66e9ad4000-7f66e9ada000 rw-p 00000000 00:00 0 
+7f66e9ada000-7f66e9b04000 r-xp 00000000 08:03 936116                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libjava.so
+7f66e9b04000-7f66e9d03000 ---p 0002a000 08:03 936116                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libjava.so
+7f66e9d03000-7f66e9d04000 r--p 00029000 08:03 936116                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libjava.so
+7f66e9d04000-7f66e9d06000 rw-p 0002a000 08:03 936116                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libjava.so
+7f66e9d06000-7f66e9d13000 r-xp 00000000 08:03 936133                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libverify.so
+7f66e9d13000-7f66e9f12000 ---p 0000d000 08:03 936133                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libverify.so
+7f66e9f12000-7f66e9f14000 r--p 0000c000 08:03 936133                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libverify.so
+7f66e9f14000-7f66e9f15000 rw-p 0000e000 08:03 936133                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/libverify.so
+7f66e9f15000-7f66e9f1c000 r-xp 00000000 08:03 918654                     /usr/lib64/librt-2.17.so
+7f66e9f1c000-7f66ea11b000 ---p 00007000 08:03 918654                     /usr/lib64/librt-2.17.so
+7f66ea11b000-7f66ea11c000 r--p 00006000 08:03 918654                     /usr/lib64/librt-2.17.so
+7f66ea11c000-7f66ea11d000 rw-p 00007000 08:03 918654                     /usr/lib64/librt-2.17.so
+7f66ea11d000-7f66ea132000 r-xp 00000000 08:03 926932                     /usr/lib64/libgcc_s-4.8.5-20150702.so.1
+7f66ea132000-7f66ea331000 ---p 00015000 08:03 926932                     /usr/lib64/libgcc_s-4.8.5-20150702.so.1
+7f66ea331000-7f66ea332000 r--p 00014000 08:03 926932                     /usr/lib64/libgcc_s-4.8.5-20150702.so.1
+7f66ea332000-7f66ea333000 rw-p 00015000 08:03 926932                     /usr/lib64/libgcc_s-4.8.5-20150702.so.1
+7f66ea333000-7f66ea434000 r-xp 00000000 08:03 918632                     /usr/lib64/libm-2.17.so
+7f66ea434000-7f66ea633000 ---p 00101000 08:03 918632                     /usr/lib64/libm-2.17.so
+7f66ea633000-7f66ea634000 r--p 00100000 08:03 918632                     /usr/lib64/libm-2.17.so
+7f66ea634000-7f66ea635000 rw-p 00101000 08:03 918632                     /usr/lib64/libm-2.17.so
+7f66ea635000-7f66ea71e000 r-xp 00000000 08:03 921472                     /usr/lib64/libstdc++.so.6.0.19
+7f66ea71e000-7f66ea91e000 ---p 000e9000 08:03 921472                     /usr/lib64/libstdc++.so.6.0.19
+7f66ea91e000-7f66ea926000 r--p 000e9000 08:03 921472                     /usr/lib64/libstdc++.so.6.0.19
+7f66ea926000-7f66ea928000 rw-p 000f1000 08:03 921472                     /usr/lib64/libstdc++.so.6.0.19
+7f66ea928000-7f66ea93d000 rw-p 00000000 00:00 0 
+7f66ea93d000-7f66eb6e1000 r-xp 00000000 08:03 936138                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/server/libjvm.so
+7f66eb6e1000-7f66eb8e0000 ---p 00da4000 08:03 936138                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/server/libjvm.so
+7f66eb8e0000-7f66eb98e000 r--p 00da3000 08:03 936138                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/server/libjvm.so
+7f66eb98e000-7f66eb9b9000 rw-p 00e51000 08:03 936138                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/jre/lib/amd64/server/libjvm.so
+7f66eb9b9000-7f66eb9ef000 rw-p 00000000 00:00 0 
+7f66eb9ef000-7f66ebbb3000 r-xp 00000000 08:03 918624                     /usr/lib64/libc-2.17.so
+7f66ebbb3000-7f66ebdb2000 ---p 001c4000 08:03 918624                     /usr/lib64/libc-2.17.so
+7f66ebdb2000-7f66ebdb6000 r--p 001c3000 08:03 918624                     /usr/lib64/libc-2.17.so
+7f66ebdb6000-7f66ebdb8000 rw-p 001c7000 08:03 918624                     /usr/lib64/libc-2.17.so
+7f66ebdb8000-7f66ebdbd000 rw-p 00000000 00:00 0 
+7f66ebdbd000-7f66ebdbf000 r-xp 00000000 08:03 918630                     /usr/lib64/libdl-2.17.so
+7f66ebdbf000-7f66ebfbf000 ---p 00002000 08:03 918630                     /usr/lib64/libdl-2.17.so
+7f66ebfbf000-7f66ebfc0000 r--p 00002000 08:03 918630                     /usr/lib64/libdl-2.17.so
+7f66ebfc0000-7f66ebfc1000 rw-p 00003000 08:03 918630                     /usr/lib64/libdl-2.17.so
+7f66ebfc1000-7f66ebfcf000 r-xp 00000000 08:03 937058                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/lib/amd64/jli/libjli.so
+7f66ebfcf000-7f66ec1ce000 ---p 0000e000 08:03 937058                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/lib/amd64/jli/libjli.so
+7f66ec1ce000-7f66ec1cf000 r--p 0000d000 08:03 937058                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/lib/amd64/jli/libjli.so
+7f66ec1cf000-7f66ec1d0000 rw-p 0000e000 08:03 937058                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64/lib/amd64/jli/libjli.so
+7f66ec1d0000-7f66ec1e5000 r-xp 00000000 08:03 919217                     /usr/lib64/libz.so.1.2.7
+7f66ec1e5000-7f66ec3e4000 ---p 00015000 08:03 919217                     /usr/lib64/libz.so.1.2.7
+7f66ec3e4000-7f66ec3e5000 r--p 00014000 08:03 919217                     /usr/lib64/libz.so.1.2.7
+7f66ec3e5000-7f66ec3e6000 rw-p 00015000 08:03 919217                     /usr/lib64/libz.so.1.2.7
+7f66ec3e6000-7f66ec3fd000 r-xp 00000000 08:03 918650                     /usr/lib64/libpthread-2.17.so
+7f66ec3fd000-7f66ec5fc000 ---p 00017000 08:03 918650                     /usr/lib64/libpthread-2.17.so
+7f66ec5fc000-7f66ec5fd000 r--p 00016000 08:03 918650                     /usr/lib64/libpthread-2.17.so
+7f66ec5fd000-7f66ec5fe000 rw-p 00017000 08:03 918650                     /usr/lib64/libpthread-2.17.so
+7f66ec5fe000-7f66ec602000 rw-p 00000000 00:00 0 
+7f66ec602000-7f66ec624000 r-xp 00000000 08:03 918619                     /usr/lib64/ld-2.17.so
+7f66ec6ce000-7f66ec712000 rw-p 00000000 00:00 0 
+7f66ec712000-7f66ec716000 ---p 00000000 00:00 0 
+7f66ec716000-7f66ec818000 rw-p 00000000 00:00 0 
+7f66ec818000-7f66ec820000 rw-s 00000000 08:03 408139                     /tmp/hsperfdata_team21/19399
+7f66ec820000-7f66ec821000 rw-p 00000000 00:00 0 
+7f66ec821000-7f66ec822000 r--p 00000000 00:00 0 
+7f66ec822000-7f66ec823000 rw-p 00000000 00:00 0 
+7f66ec823000-7f66ec824000 r--p 00021000 08:03 918619                     /usr/lib64/ld-2.17.so
+7f66ec824000-7f66ec825000 rw-p 00022000 08:03 918619                     /usr/lib64/ld-2.17.so
+7f66ec825000-7f66ec826000 rw-p 00000000 00:00 0 
+7ffd26505000-7ffd26526000 rw-p 00000000 00:00 0                          [stack]
+7ffd265be000-7ffd265c0000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dproc_dfs -Djava.net.preferIPv4Stack=true -Dyarn.log.dir=/usr/lib/hadoop/logs -Dyarn.log.file=hadoop.log -Dyarn.home.dir=/usr/lib/hadoop-yarn -Dyarn.root.logger=INFO,console -Djava.library.path=/usr/lib/hadoop/lib/native -Dhadoop.log.dir=/usr/lib/hadoop/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir=/usr/lib/hadoop -Dhadoop.id.str=team21 -Dhadoop.root.logger=INFO,console -Dhadoop.policy.file=hadoop-policy.xml -Dhadoop.security.logger=INFO,NullAppender 
+java_command: org.apache.hadoop.fs.FsShell -cat /user/team21/project/output/model2_predictions/model3_predictions.csv
+java_class_path (initial): /etc/hadoop/conf:/usr/lib/hadoop/lib/kerby-util-1.0.1.jar:/usr/lib/hadoop/lib/jetty-security-9.4.43.v20210629.jar:/usr/lib/hadoop/lib/kerb-simplekdc-1.0.1.jar:/usr/lib/hadoop/lib/token-provider-1.0.1.jar:/usr/lib/hadoop/lib/j2objc-annotations-1.1.jar:/usr/lib/hadoop/lib/commons-text-1.4.jar:/usr/lib/hadoop/lib/accessors-smart-2.4.7.jar:/usr/lib/hadoop/lib/jackson-core-2.10.5.jar:/usr/lib/hadoop/lib/commons-configuration2-2.1.1.jar:/usr/lib/hadoop/lib/kerb-common-1.0.1.jar:/usr/lib/hadoop/lib/commons-codec-1.11.jar:/usr/lib/hadoop/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/usr/lib/hadoop/lib/jackson-mapper-asl-1.9.13.jar:/usr/lib/hadoop/lib/json-smart-2.4.7.jar:/usr/lib/hadoop/lib/kerb-client-1.0.1.jar:/usr/lib/hadoop/lib/jetty-xml-9.4.43.v20210629.jar:/usr/lib/hadoop/lib/commons-beanutils-1.9.4.jar:/usr/lib/hadoop/lib/snappy-java-1.0.5.jar:/usr/lib/hadoop/lib/reload4j-1.2.18.3.jar:/usr/lib/hadoop/lib/zookeeper-3.4.14.jar:/usr/lib/hadoop/lib/woodstox-core.jar:/usr/lib/hadoop/lib/asm-5.0.4.jar:/usr/lib/hadoop/lib/slf4j-api-1.7.35.jar:/usr/lib/hadoop/lib/kerb-identity-1.0.1.jar:/usr/lib/hadoop/lib/jackson-jaxrs-1.9.13.jar:/usr/lib/hadoop/lib/nimbus-jose-jwt-9.8.1.jar:/usr/lib/hadoop/lib/jetty-servlet-9.4.43.v20210629.jar:/usr/lib/hadoop/lib/curator-framework-2.13.0.jar:/usr/lib/hadoop/lib/commons-cli-1.2.jar:/usr/lib/hadoop/lib/jersey-servlet-1.19.jar:/usr/lib/hadoop/lib/error_prone_annotations-2.2.0.jar:/usr/lib/hadoop/lib/jaxb-impl-2.2.3-1.jar:/usr/lib/hadoop/lib/checker-qual-2.5.2.jar:/usr/lib/hadoop/lib/audience-annotations-0.5.0.jar:/usr/lib/hadoop/lib/jackson-core-asl-1.9.13.jar:/usr/lib/hadoop/lib/dnsjava-2.1.7.jar:/usr/lib/hadoop/lib/animal-sniffer-annotations-1.17.jar:/usr/lib/hadoop/lib/kerby-xdr-1.0.1.jar:/usr/lib/hadoop/lib/jsch-0.1.55.jar:/usr/lib/hadoop/lib/jetty-http-9.4.43.v20210629.jar:/usr/lib/hadoop/lib/woodstox-core-5.3.0.jar:/usr/lib/hadoop/lib/jersey-core-1.19.jar:/usr/lib/hadoop/lib/commons-la
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.el7_9.x86_64
+CLASSPATH=/etc/hadoop/conf:/usr/lib/hadoop/lib/*:/usr/lib/hadoop/.//*:/usr/lib/hadoop-hdfs/./:/usr/lib/hadoop-hdfs/lib/*:/usr/lib/hadoop-hdfs/.//*:/usr/lib/hadoop-mapreduce/.//*:/usr/lib/hadoop-yarn/./:/usr/lib/hadoop-yarn/lib/*:/usr/lib/hadoop-yarn/.//*
+PATH=/opt/jupyterhub/nvm/.nvm/versions/node/v16.11.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb6b020], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb6b020], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x9408a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x9408a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x9408a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x9408a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x940a10], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS Linux release 7.9.2009 (Core)
+
+uname:Linux 3.10.0-1160.114.2.el7.x86_64 #1 SMP Wed Mar 20 15:54:52 UTC 2024 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 127871, NOFILE 4096, AS infinity
+load average:2.31 1.83 1.77
+
+/proc/meminfo:
+MemTotal:       32777952 kB
+MemFree:          218404 kB
+MemAvailable:     172604 kB
+Buffers:           16416 kB
+Cached:          1836760 kB
+SwapCached:            0 kB
+Active:         30701312 kB
+Inactive:         752868 kB
+Active(anon):   30598356 kB
+Inactive(anon):   652156 kB
+Active(file):     102956 kB
+Inactive(file):   100712 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:              6408 kB
+Writeback:             0 kB
+AnonPages:      29603240 kB
+Mapped:           112400 kB
+Shmem:           1649132 kB
+Slab:             337488 kB
+SReclaimable:     130588 kB
+SUnreclaim:       206900 kB
+KernelStack:      104848 kB
+PageTables:       181452 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    16388976 kB
+Committed_AS:   124818856 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      123736 kB
+VmallocChunk:   34359607876 kB
+Percpu:             3776 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   3383296 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      132428 kB
+DirectMap2M:    13498368 kB
+DirectMap1G:    19922944 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-15
+cpu_memory_nodes: 0
+active_processor_count: 16
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 27943321600
+memory_max_usage_in_bytes: 30690549760
+
+
+CPU:total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 85 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1769.134
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1592.486
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2294.122
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2375.012
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2898.052
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2900.354
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1199.365
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1199.896
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 8
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2900.177
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 9
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 2899.822
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 9
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 10
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 3600.219
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 10
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 11
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 3599.865
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 11
+initial apicid	: 11
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 12
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1389.642
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 12
+initial apicid	: 12
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 13
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1208.569
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 13
+initial apicid	: 13
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 14
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1763.824
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 14
+initial apicid	: 14
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 15
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+stepping	: 7
+microcode	: 0xffffffff
+cpu MHz		: 1493.542
+cache size	: 22528 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 15
+initial apicid	: 15
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd rsb_ctxsw ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities
+bogomips	: 5786.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 32777952k(219132k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.402-b06) for linux-amd64 JRE (1.8.0_402-b06), built on Jan 25 2024 15:59:05 by "mockbuild" with gcc 4.8.5 20150623 (Red Hat 4.8.5-44)
+
+time: Thu May  8 06:33:58 2025
+timezone: MSK
+elapsed time: 0.019089 seconds (0d 0h 0m 0s)
+

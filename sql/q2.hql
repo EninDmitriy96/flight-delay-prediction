@@ -1,0 +1,31 @@
+USE team21_projectdb;
+DROP TABLE IF EXISTS q2_results;
+
+CREATE EXTERNAL TABLE q2_results(
+    DEP_TIME DOUBLE,
+    CRS_DEP_TIME DOUBLE,
+    DEP_DELAY DOUBLE,
+    ARR_TIME DOUBLE,
+    ARR_DELAY DOUBLE,
+    CRS_ELAPSED_TIME DOUBLE,
+    TAXI_IN DOUBLE
+)
+
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY ',' 
+LOCATION 'project/hive/warehouse/q2';
+
+SET hive.resultset.use.unique.column.names = false;
+
+INSERT INTO TABLE q2_results
+SELECT
+    DEP_TIME,
+    CRS_DEP_TIME,
+    DEP_DELAY,
+    CRS_ELAPSED_TIME,
+    ARR_TIME,
+    ARR_DELAY,
+    TAXI_IN
+FROM flights;
+
+SELECT * FROM q2_results;

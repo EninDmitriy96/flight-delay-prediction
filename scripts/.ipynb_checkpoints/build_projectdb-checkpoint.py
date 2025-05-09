@@ -2,6 +2,7 @@ import psycopg2
 import os
 
 def main():
+    
     try:
         conn = psycopg2.connect(
             host="hadoop-04.uni.innopolis.ru",
