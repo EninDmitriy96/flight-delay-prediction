@@ -164,7 +164,7 @@ flights_df = prepare_data(data_path)
 
 # Optional: Take a smaller sample for development
 sample_fraction = 0.001
-use_sample = True
+use_sample = False
 
 if use_sample:
     print(f"Using {sample_fraction*100}% sample of data for model development")
